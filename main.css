@@ -1,0 +1,81 @@
+.string {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.string-fret {
+    flex-basis: 4.166%;
+    border-width: 1px 1px 0 0;
+    border-color: #fff;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.string-last .string-fret {
+    border-bottom: 1px solid #fff;
+}
+
+.string-first .string-fret {
+    border-color: transparent;
+}
+
+.string-fret .fret-note {
+    font-family: Helvetica;
+    color: #000;
+    opacity: 0;
+    font-weight:  700;
+    transition-delay: 2s;
+    transition: opacity 0.2s ease-in;
+    background: #f00;
+    display: flex;
+    border-radius: 13px;
+    width: 27px;
+    height: 27px;
+    justify-content: center;
+    align-items: center;
+
+}
+.string .fret-first  {
+    flex-basis: 35px;
+    border-width: 0 1px 0 0;
+}
+
+.string::after {
+    border-bottom: 1px solid #000;
+    height: 1px;
+    background-color: #fff;
+    content: "";
+}
+
+
+.bullet {
+    position: absolute;
+    font-size: 40px;
+    cursor: default;
+}
+
+html {
+    color: #fff;
+    background-color: #000;;
+}
+
+#scale-select {
+    width: 250px;
+    margin: 30px auto 0 auto;
+}
+
+@media (min-width: 768px) {
+    .string-fret {
+        height: 40px;
+    }
+    .string-fret .fret-note {
+        top: 21px;
+        position: relative;
+
+    }
+}
+
