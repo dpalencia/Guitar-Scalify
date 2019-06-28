@@ -1,6 +1,5 @@
-
 let scaleIntervals =  {
-    // 2 2 1 2 2 2 1
+    // Diatonic intervals: 2 2 1 2 2 2 1
     Major: [2, 2, 1, 2, 2, 2],
     Dorian: [2, 1, 2, 2, 2, 1],
     Phrygian: [1, 2, 2, 2, 1, 2],
@@ -11,7 +10,7 @@ let scaleIntervals =  {
     MinorPentatonic: [3, 2, 2, 3],
     BluesMajor: [2, 1, 1, 3, 2],
     BluesMinor: [3, 2, 1, 1, 3]
-    // 1-b3-4-b5-5-b7
+    // Blues Minor: 1-b3-4-b5-5-b7
 };
 let sharpRoots = ["G", "D", "A", "E", "B", "Fs", "Cs"];
 let chromatic = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];

@@ -3,6 +3,11 @@ html {
     background-color: #000;
 }
 
+.plus, .minus {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
 .string {
     display: flex;
     flex-direction: row;
@@ -31,8 +36,6 @@ html {
 .string-fret .fret-note, .tuner {
     font-family: Helvetica;
 }
-
-
 
 .string-fret .fret-note, .tuner {
     font-weight: 700;

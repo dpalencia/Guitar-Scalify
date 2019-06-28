@@ -3,11 +3,26 @@ class GuitarString { // Represent a guitar string:
     // and initialize its HTML element
     constructor(note, container) {
         this.container = container;
-        this.fretContainer= container.querySelectorAll(".string-fret");
+        this.fretContainer = container.querySelectorAll(".string-fret");
         this.note = note;
         // Fill in the HTML initially
         this.writeNotes("C");
+        this.plus = this.container.querySelector(".plus");
+        this.minus = this.container.querySelector(".minus");
+        this.plus.addEventListener("click", this.plusClick);
+        this.minus.addEventListener("click", this.minusClick);
     }
+    
+    minusClick() { // Handler for clicking "-" on tuning
+        console.log("hi");
+    }
+
+    plusClick() { // Handler for clicking "+" on tuning
+        let noteIndex = (chromatic.indexOf(this.note) + 1) % chromatic.length;
+        this.note = chromatic[noteIndex];
+        this.writeNotes(formKey.value); // Maybe clean this up by assigning key as a member variable--or inherit it from Guitar as a parent class
+    }
+
     //  Take root as a parameter to determine which scale to use
     //  to the HTML objects (sharps  or flats)
     writeNotes(root) {
