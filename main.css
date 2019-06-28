@@ -1,3 +1,8 @@
+html {
+    color: #fff;
+    background-color: #000;
+}
+
 .string {
     display: flex;
     flex-direction: row;
@@ -23,26 +28,38 @@
     border-color: transparent;
 }
 
-.string-fret .fret-note {
+.string-fret .fret-note, .tuner {
     font-family: Helvetica;
-    color: #000;
-    opacity: 0;
-    font-weight:  700;
+}
+
+
+
+.string-fret .fret-note, .tuner {
+    font-weight: 700;
     transition-delay: 2s;
     transition: opacity 0.2s ease-in;
-    background: #f00;
-    display: flex;
-    border-radius: 13px;
     width: 27px;
     height: 27px;
     justify-content: center;
     align-items: center;
-
+    display: flex;    
 }
+
+.string-fret .fret-note {
+    color: #000;
+    background: #f00;
+    border-radius: 13px;
+    width: 27px;
+    height: 27px;
+    opacity: 0;
+}
+
 .string .fret-first  {
     flex-basis: 35px;
     border-width: 0 1px 0 0;
 }
+
+
 
 .string::after {
     border-bottom: 1px solid #000;
@@ -51,17 +68,12 @@
     content: "";
 }
 
-
 .bullet {
     position: absolute;
     font-size: 40px;
     cursor: default;
 }
 
-html {
-    color: #fff;
-    background-color: #000;;
-}
 
 #scale-select {
     width: 250px;
@@ -71,6 +83,10 @@ html {
 @media (min-width: 768px) {
     .string-fret {
         height: 40px;
+    }
+    .tuner {
+        top: 29px;
+        position: relative;
     }
     .string-fret .fret-note {
         top: 21px;

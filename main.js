@@ -1,7 +1,13 @@
-// Globally scope the chromatic scale
+
 let scaleIntervals =  {
+    // 2 2 1 2 2 2 1
     Major: [2, 2, 1, 2, 2, 2],
+    Dorian: [2, 1, 2, 2, 2, 1],
+    Phrygian: [1, 2, 2, 2, 1, 2],
+    Lydian: [2, 2, 2, 1, 2, 2],
+    Mixolydian: [2, 2, 1, 2, 2, 1],
     Minor: [2, 1, 2, 2, 1, 2],
+    Locrian: [1, 2, 2, 1, 2, 2],
     MinorPentatonic: [3, 2, 2, 3],
     BluesMajor: [2, 1, 1, 3, 2],
     BluesMinor: [3, 2, 1, 1, 3]

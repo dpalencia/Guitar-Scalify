@@ -3,25 +3,25 @@ class GuitarString { // Represent a guitar string:
     // and initialize its HTML element
     constructor(note, container) {
         this.container = container;
-        this.children = container.children;
+        this.fretContainer= container.querySelectorAll(".string-fret");
         this.note = note;
         // Fill in the HTML initially
         this.writeNotes("C");
     }
-    //  Take root as a parameter to  heck which note strings to  write
+    //  Take root as a parameter to determine which scale to use
     //  to the HTML objects (sharps  or flats)
     writeNotes(root) {
         if(sharpRoots.includes(root)) {
-            for(let i = chromaticSharps.indexOf(this.note), j = 0; j < this.children.length; j++, i = (i + 1) % chromaticSharps.length) {
-                let noteHTML = this.children[j].querySelector(".fret-note");
+            for(let i = chromaticSharps.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromaticSharps.length) {
+                let noteHTML = this.fretContainer[j].querySelector(".fret-note");
                 noteHTML.innerHTML = chromaticSharps[i];
-                this.children[j].classList.add(chromatic[i]); 
+                this.fretContainer[j].classList.add(chromatic[i]);  // classList.add() ignores existing classes in subsequent calls
             }
         } else {
-            for(let i = chromatic.indexOf(this.note), j = 0; j < this.children.length; j++, i = (i + 1) % chromatic.length) {
-                let noteHTML = this.children[j].querySelector(".fret-note");
+            for(let i = chromatic.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromatic.length) {
+                let noteHTML = this.fretContainer[j].querySelector(".fret-note");
                 noteHTML.innerHTML = chromatic[i];
-                this.children[j].classList.add(chromatic[i]); 
+                this.fretContainer[j].classList.add(chromatic[i]); 
             }
          }
     }
