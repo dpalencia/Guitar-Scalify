@@ -9,8 +9,11 @@ class GuitarString { // Represent a guitar string:
         this.writeNotes("C");
         this.plus = this.container.querySelector(".plus");
         this.minus = this.container.querySelector(".minus");
-        this.plus.addEventListener("click", this.plusClick);
-        this.minus.addEventListener("click", this.minusClick);
+        //this.plus.addEventListener("click", this.plusClick.bind(this));
+        //this.minus.addEventListener("click", this.minusClick.bind(this));
+        let curString = this;
+        this.plus.addEventListener("click", curString.plusClick.bind(curString));
+        this.minus.addEventListener("click", curString.minusClick.bind(curString));
     }
     
     minusClick() { // Handler for clicking "-" on tuning
@@ -20,7 +23,7 @@ class GuitarString { // Represent a guitar string:
     plusClick() { // Handler for clicking "+" on tuning
         let noteIndex = (chromatic.indexOf(this.note) + 1) % chromatic.length;
         this.note = chromatic[noteIndex];
-        this.writeNotes(formKey.value); // Maybe clean this up by assigning key as a member variable--or inherit it from Guitar as a parent class
+        this.scalify(formScale.value, formKey.value); // Maybe clean this up by assigning key as a member variable--or inherit it from Guitar as a parent class
     }
 
     //  Take root as a parameter to determine which scale to use
