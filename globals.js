@@ -24,20 +24,17 @@ let bgColors = [
     "#0093FF",
     "#ff00ff"
 ];
-
-let guitar = new Guitar();
+let tuning = ["E", "B", "G", "D", "A", "E"];
+let key = "C";
+let scaleName = "Major";
+let scale = [];
+// Initialize the guitarstrings
+let allStrings = document.querySelectorAll(".string");
 let scaleSelect = document.querySelector("#scale-select")
 let formKey = document.querySelector("#key");
 let formScale = document.querySelector("#scale");
 
-formKey.addEventListener("change", function() {
-    guitar.key = this.value;
-    guitar.createScale(formScale.value);
-    guitar.scalify();
-});
-
-formScale.addEventListener("change", function() {
-    guitar.createScale(this.value);
-    guitar.scalify();
-});
-
+strings = []; // An array of guitarstring objects
+for(let i = 0; i < tuning.length; i++) {
+    strings.push(new GuitarString(tuning[i], allStrings[i]));
+}

@@ -6,7 +6,7 @@ class GuitarString { // Represent a guitar string:
         this.fretContainer = container.querySelectorAll(".string-fret");
         this.note = note;
         // Fill in the HTML initially
-        this.writeNotes("C");
+        this.writeNotes();
         this.plus = this.container.querySelector(".plus");
         this.minus = this.container.querySelector(".minus");
         //this.plus.addEventListener("click", this.plusClick.bind(this));
@@ -17,43 +17,51 @@ class GuitarString { // Represent a guitar string:
     }
     
     minusClick() { // Handler for clicking "-" on tuning
-        console.log("hi");
+        let noteIndex = (chromatic.indexOf(this.note) + 1) % chromatic.length;
+        this.note = chromatic[noteIndex];
+        this.scalify(); 
     }
 
     plusClick() { // Handler for clicking "+" on tuning
-        let noteIndex = (chromatic.indexOf(this.note) + 1) % chromatic.length;
+        let noteIndex = (chromatic.indexOf(this.note) + chromatic.length - 1) % chromatic.length;
         this.note = chromatic[noteIndex];
-        this.scalify(formScale.value, formKey.value); // Maybe clean this up by assigning key as a member variable--or inherit it from Guitar as a parent class
+        this.scalify();
     }
 
-    //  Take root as a parameter to determine which scale to use
-    //  to the HTML objects (sharps  or flats)
-    writeNotes(root) {
-        if(sharpRoots.includes(root)) {
+    //  Use global key variable as initial array index and write out HTML elements
+    // This function could use a dose of DRY
+    writeNotes() {
+        if(sharpRoots.includes(key)) {
+            this.container.querySelector(".tune-note").innerHTML = this.note;
             for(let i = chromaticSharps.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromaticSharps.length) {
                 let noteHTML = this.fretContainer[j].querySelector(".fret-note");
                 noteHTML.innerHTML = chromaticSharps[i];
+                this.fretContainer[j].classList.remove(chromatic[(i + 1) % chromaticSharps.length]);
+                this.fretContainer[j].classList.remove(chromatic[(i + chromaticSharps.length - 1) % chromaticSharps.length]);
                 this.fretContainer[j].classList.add(chromatic[i]);  // classList.add() ignores existing classes in subsequent calls
             }
         } else {
+            this.container.querySelector(".tune-note").innerHTML = this.note;
             for(let i = chromatic.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromatic.length) {
                 let noteHTML = this.fretContainer[j].querySelector(".fret-note");
                 noteHTML.innerHTML = chromatic[i];
+                this.fretContainer[j].classList.remove(chromatic[(i + 1) % chromaticSharps.length]);
+                this.fretContainer[j].classList.remove(chromatic[(i + chromaticSharps.length - 1) % chromaticSharps.length]);
                 this.fretContainer[j].classList.add(chromatic[i]); 
             }
          }
     }
-    // Takes scale intervals  as its  argument
-    scalify(scale, root) {
+    // Use global scale intervals to flip on relevant HTML elements
+    scalify() {
         // Clear up the notes
-        let allFrets = document.querySelectorAll(".fret-note");
+        let allFrets = this.container.querySelectorAll(".fret-note");
         allFrets.forEach(function(fret) {
             fret.style.opacity = "0";
         });
-        this.writeNotes(root);
+        this.writeNotes();
         // Enable the relevant notes
         for(let i = 0; i < scale.length; i++) {
-            let noteFrets = document.querySelectorAll("." + scale[i] + " .fret-note"); // Select all note HTML objects for the current note
+            let noteFrets = this.container.querySelectorAll("." + scale[i] + " .fret-note"); // Select all note HTML objects for the current note
             noteFrets.forEach(function(fretHTML) {
                 fretHTML.style.backgroundColor = bgColors[i];
                 fretHTML.style.opacity = "1";               
@@ -62,6 +70,7 @@ class GuitarString { // Represent a guitar string:
     }
 };
 
+/*
 class Guitar {
     constructor() {
         this.tuning = ["E", "B", "G", "D", "A", "E"]; // Tuning is "backwards" to make array iteration cleaner
@@ -89,3 +98,4 @@ class Guitar {
         }, this); // Need to specify "this" explicitly in a foreach method
     }
 };
+*/
