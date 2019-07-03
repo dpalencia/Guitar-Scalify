@@ -12,7 +12,7 @@ let scaleIntervals =  {
     BluesMinor: [3, 2, 1, 1, 3]
     // Blues Minor: 1-b3-4-b5-5-b7
 };
-let sharpRoots = ["G", "D", "A", "E", "B", "Fs", "Cs"];
+let sharpRoots = ["G", "D", "A", "E", "B", "Gb", "Db"];
 let chromatic = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
 let chromaticSharps = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 let bgColors = [

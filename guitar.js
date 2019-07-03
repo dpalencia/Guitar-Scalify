@@ -16,13 +16,13 @@ class GuitarString { // Represent a guitar string:
         this.minus.addEventListener("click", curString.minusClick.bind(curString));
     }
     
-    minusClick() { // Handler for clicking "-" on tuning
+    plusClick() { // Handler for clicking "-" on tuning
         let noteIndex = (chromatic.indexOf(this.note) + 1) % chromatic.length;
         this.note = chromatic[noteIndex];
         this.scalify(); 
     }
 
-    plusClick() { // Handler for clicking "+" on tuning
+    minusClick() { // Handler for clicking "+" on tuning
         let noteIndex = (chromatic.indexOf(this.note) + chromatic.length - 1) % chromatic.length;
         this.note = chromatic[noteIndex];
         this.scalify();
@@ -31,26 +31,27 @@ class GuitarString { // Represent a guitar string:
     //  Use global key variable as initial array index and write out HTML elements
     // This function could use a dose of DRY
     writeNotes() {
-        if(sharpRoots.includes(key)) {
-            this.container.querySelector(".tune-note").innerHTML = this.note;
-            for(let i = chromaticSharps.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromaticSharps.length) {
-                let noteHTML = this.fretContainer[j].querySelector(".fret-note");
-                noteHTML.innerHTML = chromaticSharps[i];
-                this.fretContainer[j].classList.remove(chromatic[(i + 1) % chromaticSharps.length]);
-                this.fretContainer[j].classList.remove(chromatic[(i + chromaticSharps.length - 1) % chromaticSharps.length]);
-                this.fretContainer[j].classList.add(chromatic[i]);  // classList.add() ignores existing classes in subsequent calls
-            }
-        } else {
-            this.container.querySelector(".tune-note").innerHTML = this.note;
-            for(let i = chromatic.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromatic.length) {
-                let noteHTML = this.fretContainer[j].querySelector(".fret-note");
-                noteHTML.innerHTML = chromatic[i];
-                this.fretContainer[j].classList.remove(chromatic[(i + 1) % chromaticSharps.length]);
-                this.fretContainer[j].classList.remove(chromatic[(i + chromaticSharps.length - 1) % chromaticSharps.length]);
-                this.fretContainer[j].classList.add(chromatic[i]); 
-            }
-         }
+        let innerStringsArray; // Array we will use to write to HTML elements
+        if(sharpRoots.includes(key)) 
+            innerStringsArray = chromaticSharps; // Get the"sharp" string from the parallel chromaticSharps array
+        else 
+            innerStringsArray = chromatic;
+        this.container.querySelector(".tune-note").innerHTML = innerStringsArray[chromatic.indexOf(this.note)];
+        for(let i = chromatic.indexOf(this.note), j = 0; j < this.fretContainer.length; j++, i = (i + 1) % chromatic.length) {
+            let noteHTML = this.fretContainer[j].querySelector(".fret-note");
+            noteHTML.innerHTML = innerStringsArray[i];
+            this.clearNoteClasses(this.fretContainer[j].classList, i);
+            this.fretContainer[j].classList.add(chromatic[i]);  // classList.add() ignores existing classes in subsequent calls
+        }
     }
+
+    clearNoteClasses(classList, i) {
+        //classList.remove(chromaticSharps[(i + 1) % chromaticSharps.length]);
+        //classList.remove(chromaticSharps[(i + chromaticSharps.length - 1) % chromaticSharps.length]);
+        classList.remove(chromatic[(i + chromatic.length - 1) % chromatic.length]);
+        classList.remove(chromatic[(i + 1) % chromatic.length]);
+    }
+
     // Use global scale intervals to flip on relevant HTML elements
     scalify() {
         // Clear up the notes
