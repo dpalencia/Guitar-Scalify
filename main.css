@@ -11,7 +11,6 @@ html {
 .string {
     display: flex;
     flex-direction: row;
-    
     margin: 0 auto;
 }
 
@@ -23,10 +22,6 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.string-last .string-fret {
-    border-bottom: 1px solid #fff;
 }
 
 .string-first .string-fret {
@@ -59,7 +54,7 @@ html {
 
 .string .fret-first  {
     flex-basis: 35px;
-    border-width: 0 1px 0 0;
+    border-width: 0px 1px 0px 0px;
 }
 
 
@@ -89,14 +84,29 @@ html {
     .string {
         flex-direction: column;
         margin: 0;
+        flex-basis: 35px;
+    }
+    .string-fret .fret-note {
+        position: relative;
+        left: 19px;
+    }
+    .tuner {
+        position: relative;
+        left: 20px;
     }
     .string-container {
         display: flex;
         justify-content: center;
     }
+    .string-first .string-fret {
+        border-color: #fff;
+        border-width: 0 1px 0px 0;
+        border-style: solid;
+    }
 }
 
 @media (min-width: 768px) {
+
     .string {
         width: 90%;
     }
@@ -110,7 +120,9 @@ html {
     .string-fret .fret-note {
         top: 21px;
         position: relative;
-
+    }
+    .string-last .string-fret {
+        border-bottom: 1px solid #fff;
     }
 }
 
