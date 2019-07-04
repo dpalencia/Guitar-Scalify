@@ -16,7 +16,7 @@ html {
 }
 
 .string-fret {
-    flex-basis: 4.166%;
+    flex-basis: 45px;
     border-width: 1px 1px 0 0;
     border-color: #fff;
     border-style: solid;
@@ -46,16 +46,16 @@ html {
     color: #000;
     background: #f00;
     border-radius: 13px;
-    width: 27px;
-    height: 27px;
+    /*width: 27px;
+    height: 27px;*/
     opacity: 0;
 }
-
+/*
 .string .fret-first  {
     flex-basis: 35px;
     border-width: 0px 1px 0px 0px;
 }
-
+*/
 
 /*
 .string::after {
@@ -98,19 +98,29 @@ html {
         justify-content: center;
         flex-direction: row-reverse;
     }
-    /*
-    .string-first .string-fret {
-        border-color: #fff;
-        border-width: 0 1px 0px 0;
-        border-style: solid;
+    .string-last .string-fret {
+        border-width: 1px 1px 0 1px;
     }
-    */
     .string-first .string-fret {
         border-color: transparent;
     }
     .string .fret-first {
-        border-width: 5px 1px 0 0;
+        border-width: 0 0 0 0;
     }
+    .string .fret-last {
+        margin-bottom: 20px;
+        border-bottom-width: 1px;
+    }
+    .plus {
+        order: 1;
+    }
+    .minus {
+        order: 3;
+    }
+    .tune-note {
+        order: 2;
+    }
+    
 }
 
 @media (min-width: 768px) {
