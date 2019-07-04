@@ -12,6 +12,7 @@ html {
     display: flex;
     flex-direction: row;
     margin: 0 auto;
+    width: 90%;
 }
 
 .string-fret {
@@ -24,9 +25,7 @@ html {
     align-items: center;
 }
 
-.string-first .string-fret {
-    border-color: transparent;
-}
+
 
 .string-fret .fret-note, .tuner {
     font-family: Helvetica;
@@ -58,14 +57,14 @@ html {
 }
 
 
-
+/*
 .string::after {
     border-bottom: 1px solid #000;
     height: 1px;
     background-color: #fff;
     content: "";
 }
-
+*/
 .bullet {
     position: absolute;
     font-size: 40px;
@@ -88,27 +87,40 @@ html {
     }
     .string-fret .fret-note {
         position: relative;
-        left: 19px;
+        right: 19px;
     }
     .tuner {
         position: relative;
-        left: 20px;
+        right: 20px;
     }
     .string-container {
         display: flex;
         justify-content: center;
+        flex-direction: row-reverse;
     }
+    /*
     .string-first .string-fret {
         border-color: #fff;
         border-width: 0 1px 0px 0;
         border-style: solid;
     }
+    */
+    .string-first .string-fret {
+        border-color: transparent;
+    }
+    .string .fret-first {
+        border-width: 5px 1px 0 0;
+    }
 }
 
 @media (min-width: 768px) {
-
-    .string {
+    /*.string {
         width: 90%;
+    }
+    */
+
+    .string-first .string-fret {
+        border-color: transparent;
     }
     .string-fret {
         height: 40px;
