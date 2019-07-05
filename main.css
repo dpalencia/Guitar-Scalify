@@ -84,6 +84,12 @@ html {
 }
 
 
+@media (max-width: 767px) {
+    .string-fret {
+        min-width: 30px;
+    }
+}
+
 
 @media (max-width: 380px) {
     .string {
