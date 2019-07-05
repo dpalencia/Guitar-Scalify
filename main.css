@@ -1,6 +1,7 @@
 html {
     color: #fff;
     background-color: #000;
+    font-family: Helvetica;
 }
 
 .plus, .minus {
@@ -16,7 +17,6 @@ html {
 }
 
 .string-fret {
-    flex-basis: 45px;
     border-width: 1px 1px 0 0;
     border-color: #fff;
     border-style: solid;
@@ -25,10 +25,15 @@ html {
     align-items: center;
 }
 
+.string-fret  {
+    flex-basis: 3.57%;
+}
+.tuner {
+    width: 27px;
+}
 
-
-.string-fret .fret-note, .tuner {
-    font-family: Helvetica;
+.fret-num {
+    position: absolute;
 }
 
 .string-fret .fret-note, .tuner {
@@ -37,6 +42,7 @@ html {
     /*transition: opacity 0.2s ease-in;*/
     width: 27px;
     height: 27px;
+    min-width: 27px;
     justify-content: center;
     align-items: center;
     display: flex;    
@@ -73,8 +79,8 @@ html {
 
 
 #scale-select {
-    width: 250px;
-    margin: 30px auto 0 auto;
+    width: 192px;
+    margin: 30px auto 30px auto;
 }
 
 
@@ -89,9 +95,12 @@ html {
         position: relative;
         right: 19px;
     }
+    .string-fret {
+        flex-basis: 40px;
+    }
     .tuner {
         position: relative;
-        right: 20px;
+        right: 12px;
     }
     .string-container {
         display: flex;
@@ -120,7 +129,9 @@ html {
     .tune-note {
         order: 2;
     }
-    
+    .fret-num {
+        margin-left: 25px;
+    }
 }
 
 @media (min-width: 381px) {
@@ -128,11 +139,15 @@ html {
         width: 90%;
     }
     */
+    .string-fret { 
+        min-width: 40px;
+    }
+    .fret-num {
+        margin-bottom: 15px;
+    }
     .string-fret.fret-first {
         border-width: 0 1px 0 0;
-    }
-    .string-container {
-        min-width: 1000px;
+        margin-left: 15px;
     }
     .string-first .string-fret {
         border-color: transparent;
