@@ -84,9 +84,9 @@ html {
 }
 
 
-@media (max-width: 767px) {
-    .string-fret {
-        min-width: 30px;
+@media (min-width: 767px) {
+    .string-fret { 
+        min-width: 40px;
     }
 }
 
@@ -145,9 +145,6 @@ html {
         width: 90%;
     }
     */
-    .string-fret { 
-        min-width: 40px;
-    }
     .fret-num {
         margin-bottom: 15px;
     }
