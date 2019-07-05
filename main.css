@@ -79,7 +79,7 @@ html {
 
 
 
-@media (max-width: 767px) {
+@media (max-width: 380px) {
     .string {
         flex-direction: column;
         margin: 0;
@@ -123,12 +123,17 @@ html {
     
 }
 
-@media (min-width: 768px) {
+@media (min-width: 381px) {
     /*.string {
         width: 90%;
     }
     */
-
+    .string-fret.fret-first {
+        border-width: 0 1px 0 0;
+    }
+    .string-container {
+        min-width: 1000px;
+    }
     .string-first .string-fret {
         border-color: transparent;
     }
@@ -145,6 +150,9 @@ html {
     }
     .string-last .string-fret {
         border-bottom: 1px solid #fff;
+    }
+    .string-last .string-fret.fret-first {
+        border-bottom: 0px;
     }
 }
 
