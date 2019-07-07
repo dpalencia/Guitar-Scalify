@@ -84,12 +84,27 @@ html {
 }
 
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
     .string-fret { 
         min-width: 40px;
+        height: 40px;
     }
 }
 
+@media (max-width: 767px) and (min-width: 381px) {
+    .string-container {
+        font-size: 9px;
+    }
+    .string-fret .fret-note, .tuner {
+        width: 15px;
+        min-width: 15px;
+        height: 15px;
+    }
+    .string-fret {
+        height: 20px;
+        min-width: 18px;
+    }
+}
 
 @media (max-width: 380px) {
     .string {
@@ -155,9 +170,7 @@ html {
     .string-first .string-fret {
         border-color: transparent;
     }
-    .string-fret {
-        height: 40px;
-    }
+
     .tuner {
         top: 29px;
         position: relative;
