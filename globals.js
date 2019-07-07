@@ -33,8 +33,9 @@ let allStrings = document.querySelectorAll(".string");
 let scaleSelect = document.querySelector("#scale-select")
 let formKey = document.querySelector("#key");
 let formScale = document.querySelector("#scale");
-
+let heading = document.querySelector(".scale-heading");
 strings = []; // An array of guitarstring objects
 for(let i = 0; i < tuning.length; i++) {
     strings.push(new GuitarString(tuning[i], allStrings[i]));
 }
+

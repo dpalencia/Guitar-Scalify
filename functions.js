@@ -7,3 +7,6 @@ function createScale() {
     return retScale;
 }
 
+function writeHeading(scaleTitle) {
+    heading.innerHTML = scaleTitle + " Scale";
+}

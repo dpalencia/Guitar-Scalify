@@ -4,6 +4,11 @@ html {
     font-family: Helvetica;
 }
 
+.intro-text {
+    margin: 0 auto;
+    width: 90%;
+}
+
 .plus, .minus {
     background-color: #fff;
     color: #000;
@@ -29,7 +34,8 @@ html {
     flex-basis: 3.57%;
 }
 .tuner {
-    width: 27px;
+    /*
+    width: 27px;*/
 }
 
 .fret-num {
@@ -39,10 +45,10 @@ html {
 .string-fret .fret-note, .tuner {
     font-weight: 700;
     /*transition-delay: 2s;*/
-    /*transition: opacity 0.2s ease-in;*/
+    /*transition: opacity 0.2s ease-in;
     width: 27px;
     height: 27px;
-    min-width: 27px;
+    min-width: 27px;*/
     justify-content: center;
     align-items: center;
     display: flex;    
@@ -83,15 +89,32 @@ html {
     margin: 30px auto 30px auto;
 }
 
+.tuner {
+    position: relative;
+}
+.string-fret .fret-note {
+    position:relative;
+}
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {    
     .string-fret { 
-        min-width: 40px;
+        /*min-width: 40px;*/
         height: 40px;
+    }
+    .tuner {
+        top: 30px;
+        flex-basis: 30px;
+        height: 30px;
+    }
+    .string-fret .fret-note {
+        top: 22px;
+        width: 25px;
+        height: 25px;
     }
 }
 
-@media (max-width: 767px) and (min-width: 381px) {
+
+@media (max-width: 959px) and (min-width: 668px) {
     .string-container {
         font-size: 9px;
     }
@@ -112,30 +135,26 @@ html {
     
     .tuner {
         top: 16px;
-        position: relative;
     }
     .string-fret .fret-note {
         top: 13px;
-        position:relative;
     }
     
 }
 
-@media (max-width: 380px) {
+@media (max-width: 667px) {
     .string {
         flex-direction: column;
         margin: 0;
         flex-basis: 35px;
     }
     .string-fret .fret-note {
-        position: relative;
         right: 19px;
     }
     .string-fret {
         flex-basis: 40px;
     }
     .tuner {
-        position: relative;
         right: 12px;
     }
     .string-container {
@@ -168,9 +187,13 @@ html {
     .fret-num {
         margin-left: 25px;
     }
+    .string-fret .fret-note, .tuner {
+        width: 27px;
+        height: 27px;
+    }
 }
 
-@media (min-width: 381px) {
+@media (min-width: 667px) {
     /*.string {
         width: 90%;
     }
