@@ -95,15 +95,30 @@ html {
     .string-container {
         font-size: 9px;
     }
-    .string-fret .fret-note, .tuner {
+    .string-fret .fret-note {
         width: 15px;
         min-width: 15px;
         height: 15px;
     }
-    .string-fret {
+    .tuner {
         height: 20px;
+        width: 20px;
+        font-size: 16px;
+    }
+    .string-fret {
+        height:  25px;
         min-width: 18px;
     }
+    
+    .tuner {
+        top: 16px;
+        position: relative;
+    }
+    .string-fret .fret-note {
+        top: 13px;
+        position:relative;
+    }
+    
 }
 
 @media (max-width: 380px) {
@@ -170,7 +185,7 @@ html {
     .string-first .string-fret {
         border-color: transparent;
     }
-
+    /*
     .tuner {
         top: 29px;
         position: relative;
@@ -179,6 +194,7 @@ html {
         top: 21px;
         position: relative;
     }
+    */
     .string-last .string-fret {
         border-bottom: 1px solid #fff;
     }
