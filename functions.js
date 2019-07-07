@@ -8,5 +8,5 @@ function createScale() {
 }
 
 function writeHeading(scaleTitle) {
-    heading.innerHTML = scaleTitle + " Scale";
+    heading.innerHTML = scaleTitle;
 }

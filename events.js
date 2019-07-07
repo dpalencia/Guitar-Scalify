@@ -8,6 +8,7 @@ strings.forEach(function(st) {
 formKey.addEventListener("change", function() {
     key = this.value;
     scale = createScale(scaleName);
+    writeHeading(key + " " + scaleName);
     strings.forEach(function(st) {
         st.scalify()
     });
@@ -16,7 +17,7 @@ formKey.addEventListener("change", function() {
 formScale.addEventListener("change", function() {
     scaleName = this.value;
     scale = createScale(scaleName);
-    writeHeading(scaleName);
+    writeHeading(key + " " + scaleName);
     strings.forEach(function(st) {
         st.scalify()
     });
