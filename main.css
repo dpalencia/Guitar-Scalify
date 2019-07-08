@@ -9,7 +9,7 @@ h1 {
 }
 
 .intro-text {
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
     width: 700px;
     max-width: 90%;
     text-align: Center;
