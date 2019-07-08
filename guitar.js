@@ -9,8 +9,6 @@ class GuitarString { // Represent a guitar string:
         this.writeNotes();
         this.plus = this.container.querySelector(".plus");
         this.minus = this.container.querySelector(".minus");
-        //this.plus.addEventListener("click", this.plusClick.bind(this));
-        //this.minus.addEventListener("click", this.minusClick.bind(this));
         let curString = this;
         this.plus.addEventListener("click", curString.plusClick.bind(curString));
         this.minus.addEventListener("click", curString.minusClick.bind(curString));
@@ -29,7 +27,6 @@ class GuitarString { // Represent a guitar string:
     }
 
     //  Use global key variable as initial array index and write out HTML elements
-    // This function could use a dose of DRY
     writeNotes() {
         let innerStringsArray; // Array we will use to write to HTML elements
         if(sharpRoots.includes(key)) 
@@ -46,8 +43,6 @@ class GuitarString { // Represent a guitar string:
     }
 
     clearNoteClasses(classList, i) {
-        //classList.remove(chromaticSharps[(i + 1) % chromaticSharps.length]);
-        //classList.remove(chromaticSharps[(i + chromaticSharps.length - 1) % chromaticSharps.length]);
         classList.remove(chromatic[(i + chromatic.length - 1) % chromatic.length]);
         classList.remove(chromatic[(i + 1) % chromatic.length]);
     }
@@ -71,32 +66,3 @@ class GuitarString { // Represent a guitar string:
     }
 };
 
-/*
-class Guitar {
-    constructor() {
-        this.tuning = ["E", "B", "G", "D", "A", "E"]; // Tuning is "backwards" to make array iteration cleaner
-        this.strings = []; // An array of string objects
-        this.domStrings = document.querySelectorAll(".string");
-        // Pass each string the parent element and tonic. Its constructor handles the rest
-        for(let i = 0; i < this.tuning.length; i++) {
-            this.strings.push(new GuitarString(this.tuning[i], this.domStrings[i]));
-        }
-        this.key = "C";
-        this.scale = []; // Holds the built out scale
-        this.createScale("Major"); // Diatonic scale intervals will be represented as an array
-        this.scalify();
-    }
-    createScale(scaleName) { // Iterate through the chromatic scale with our intervals to create a scale
-        this.scale = []; // Clear the scale
-        for(let i = chromatic.indexOf(this.key), j = 0; j < scaleIntervals[scaleName].length + 1; 
-        i = (i + scaleIntervals[scaleName][j++]) % chromatic.length) {
-            this.scale.push(chromatic[i]);
-        }
-    }
-    scalify() { // Update the markup to show the notes of the scale
-        this.strings.forEach(function(st) {
-            st.scalify(this.scale, this.key);
-        }, this); // Need to specify "this" explicitly in a foreach method
-    }
-};
-*/
