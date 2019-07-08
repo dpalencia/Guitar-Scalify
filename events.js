@@ -1,6 +1,6 @@
 // Initialize the fretboard
 scale = createScale(scaleName);
-writeHeading(key + " " + scaleName);
+writeHeading(key + " " + formScale[formScale.selectedIndex].innerHTML);
 createHeadingNotes(scale);
 strings.forEach(function(st) {
     st.scalify();

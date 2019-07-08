@@ -25,8 +25,6 @@ let bgColors = [
     "#ff00ff"
 ];
 let tuning = ["E", "B", "G", "D", "A", "E"];
-let key = "C";
-let scaleName = "Major";
 let scale = [];
 // Initialize the guitarstrings
 let allStrings = document.querySelectorAll(".string");
@@ -34,6 +32,8 @@ let scaleSelect = document.querySelector("#scale-select")
 let formKey = document.querySelector("#key");
 let formScale = document.querySelector("#scale");
 let heading = document.querySelector(".scale-heading");
+let key = formKey.value;
+let scaleName = formScale.value;
 strings = []; // An array of guitarstring objects
 for(let i = 0; i < tuning.length; i++) {
     strings.push(new GuitarString(tuning[i], allStrings[i]));
