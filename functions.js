@@ -10,3 +10,15 @@ function createScale() {
 function writeHeading(scaleTitle) {
     heading.innerHTML = scaleTitle;
 }
+
+function createHeadingNotes(createdScale) {
+    let notesContainer = document.querySelector(".scale-notes-container");
+    notesContainer.innerHTML = "";
+    createdScale.forEach(function(s) {
+        let newNote = document.createElement("div");
+        newNote.style.color = bgColors[createdScale.indexOf(s)];
+        newNote.innerHTML = s;
+        newNote.classList.add("heading-note");
+        notesContainer.appendChild(newNote);
+    }); 
+}

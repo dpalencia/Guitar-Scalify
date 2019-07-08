@@ -1,5 +1,7 @@
 // Initialize the fretboard
 scale = createScale(scaleName);
+writeHeading(key + " " + scaleName);
+createHeadingNotes(scale);
 strings.forEach(function(st) {
     st.scalify();
 });
@@ -8,7 +10,8 @@ strings.forEach(function(st) {
 formKey.addEventListener("change", function() {
     key = this.value;
     scale = createScale(scaleName);
-    writeHeading(key + " " + scaleName);
+    writeHeading(key + " " + formScale[formScale.selectedIndex].innerHTML);
+    createHeadingNotes(scale);
     strings.forEach(function(st) {
         st.scalify()
     });
@@ -17,7 +20,8 @@ formKey.addEventListener("change", function() {
 formScale.addEventListener("change", function() {
     scaleName = this.value;
     scale = createScale(scaleName);
-    writeHeading(key + " " + scaleName);
+    writeHeading(key + " " + this[this.selectedIndex].innerHTML);
+    createHeadingNotes(scale);
     strings.forEach(function(st) {
         st.scalify()
     });

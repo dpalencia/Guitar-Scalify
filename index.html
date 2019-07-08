@@ -9,15 +9,18 @@
 </head>
 <body>
     <div class="intro-text">
-        <h1>Guitar Scale Viewer</h1>
-        <p>Use the dropdown menus below to select a mode and root note to display on the fretboard. Use the tuners next to the fretboard to change the tuning of its corresponding string.</p>
+        
+        <p>Use the dropdown menus below to select a scale and root note to display on the fretboard. Use the tuners next to the fretboard to change the tuning of its corresponding string. The scale degrees are color coded and fabulous, with red representing the tonic.</p>
         <h2 class="scale-heading"></h2>
+        <div class="scale-notes-container">
+            
+        </div>
     </div>
     <div class="string-container">
          <div id="string0" class="string string-first">
-            <div class="tuner plus">+</div>
+            <button class="tuner plus">+</button>
             <div class="tuner tune-note">E</div>
-            <div class="tuner minus">-</div>
+            <button class="tuner minus">-</button>
             <div class="string-fret fret-first"><div class="fret-num">0</div><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-num">1</div><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-num">2</div><div class="fret-note"></div></div>
@@ -45,9 +48,9 @@
             <div class="string-fret fret-last"><div class="fret-num">24</div><div class="fret-note"></div></div>
         </div>       
         <div id="string1" class="string">
-            <div class="tuner plus">+</div>
+            <button class="tuner plus">+</button>
             <div class="tuner tune-note">B</div>
-            <div class="tuner minus">-</div>
+            <button class="tuner minus">-</button>
             <div class="string-fret fret-first"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
@@ -75,9 +78,9 @@
             <div class="string-fret fret-last"><div class="fret-note"></div></div>
         </div>
         <div id="string2" class="string">
-            <div class="tuner plus">+</div>
+            <button class="tuner plus">+</button>
             <div class="tuner tune-note">G</div>
-            <div class="tuner minus">-</div>
+            <button class="tuner minus">-</button>
             <div class="string-fret fret-first"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
@@ -105,9 +108,9 @@
             <div class="string-fret fret-last"><div class="bullet">&bull;</div><div class="fret-note"></div></div>
             </div>
         <div id="string3" class="string">
-            <div class="tuner plus">+</div>
+            <button class="tuner plus">+</button>
             <div class="tuner tune-note">D</div>
-            <div class="tuner minus">-</div>
+            <button class="tuner minus">-</button>
             <div class="string-fret fret-first"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="bullet">&bull;</div><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
@@ -135,9 +138,9 @@
             <div class="string-fret fret-last"><div class="fret-note"></div></div>
         </div>
         <div id="string4" class="string">
-            <div class="tuner plus">+</div>
+            <button class="tuner plus">+</button>
             <div class="tuner tune-note">A</div>
-            <div class="tuner minus">-</div>
+            <button class="tuner minus">-</button>
             <div class="string-fret fret-first"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
@@ -165,9 +168,9 @@
             <div class="string-fret fret-last"><div class="bullet">&bull;</div><div class="fret-note"></div></div>
             </div>
         <div id="string5" class="string string-last">
-            <div class="tuner plus">+</div>
+            <button class="tuner plus">+</button>
             <div class="tuner tune-note">E</div>
-            <div class="tuner minus">-</div>
+            <button class="tuner minus">-</button>
             <div class="string-fret fret-first"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>
             <div class="string-fret"><div class="fret-note"></div></div>

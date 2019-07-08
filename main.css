@@ -1,12 +1,37 @@
+
+
 html {
     color: #fff;
     background-color: #000;
     font-family: Helvetica;
 }
 
+h1 {
+    font-size: 40px;
+}
+
 .intro-text {
     margin: 0 auto;
-    width: 90%;
+    width: 700px;
+    max-width: 90%;
+    text-align: Center;
+}
+
+.scale-heading {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.scale-notes-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.heading-note {
+    padding: 5px;
+    font-size: 30px;
+    font-weight: 700;
 }
 
 .plus, .minus {
@@ -32,10 +57,6 @@ html {
 
 .string-fret  {
     flex-basis: 3.57%;
-}
-.tuner {
-    /*
-    width: 27px;*/
 }
 
 .fret-num {
@@ -85,12 +106,26 @@ html {
 
 
 #scale-select {
-    width: 192px;
+    width: 305px;
+    max-width: 90%;
     margin: 30px auto 30px auto;
 }
 
+.scale-field {
+    width: 48%;
+    padding: 1.5%;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #fff;
+    appearance: button;
+}
+
+
 .tuner {
     position: relative;
+    border: none;
 }
 .string-fret .fret-note {
     position:relative;
@@ -126,7 +161,7 @@ html {
     .tuner {
         height: 20px;
         width: 20px;
-        font-size: 16px;
+        font-size: 12px;
     }
     .string-fret {
         height:  25px;
