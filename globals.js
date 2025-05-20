@@ -9,8 +9,10 @@ let scaleIntervals =  {
     Locrian: [1, 2, 2, 1, 2, 2],
     MinorPentatonic: [3, 2, 2, 3],
     BluesMajor: [2, 1, 1, 3, 2],
-    BluesMinor: [3, 2, 1, 1, 3]
+    BluesMinor: [3, 2, 1, 1, 3],
     // Blues Minor: 1-b3-4-b5-5-b7
+    HarmonicMinor: [2, 1, 2, 2, 1, 3], // 1-2-b3-4-5-b6-7
+    HarmonicMajor: [2, 2, 1, 2, 1, 3]  // 1-2-3-4-5-b6-7
 };
 let sharpRoots = ["G", "D", "A", "E", "B", "Gb", "Db"];
 let chromatic = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
