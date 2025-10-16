@@ -53,6 +53,7 @@ class GuitarString { // Represent a guitar string:
         let allFrets = this.container.querySelectorAll(".fret-note");
         allFrets.forEach(function(fret) {
             fret.style.opacity = "0";
+            fret.classList.remove("arpeggio-note");
         });
         this.writeNotes();
         // Enable the relevant notes
@@ -61,6 +62,63 @@ class GuitarString { // Represent a guitar string:
             noteFrets.forEach(function(fretHTML) {
                 fretHTML.style.backgroundColor = bgColors[i];
                 fretHTML.style.opacity = "1";               
+            });
+        }
+        
+        // If arpeggio mode is active, highlight the arpeggio notes
+        if (arpeggioMode) {
+            this.highlightArpeggio();
+        }
+    }
+    
+    // Highlight the arpeggio notes
+    highlightArpeggio() {
+        // Get the chord quality for the current chord degree
+        const chordDegree = parseInt(document.getElementById("arpeggio-degree").value);
+        const chordType = document.getElementById("arpeggio-type").value;
+        
+        if (!chordQualities[scaleName] || chordDegree >= scale.length) {
+            return; // No chord qualities defined for this scale or invalid chord degree
+        }
+        
+        const quality = chordQualities[scaleName][chordDegree];
+        
+        // Determine which arpeggio pattern to use based on chord quality and type
+        let pattern;
+        if (chordType === "triad") {
+            if (quality === "MAJ") {
+                pattern = arpeggioPatterns.majorTriad;
+            } else if (quality === "min") {
+                pattern = arpeggioPatterns.minorTriad;
+            } else if (quality === "dim") {
+                pattern = arpeggioPatterns.dimTriad;
+            } else if (quality === "aug") {
+                pattern = arpeggioPatterns.augTriad;
+            } else {
+                return; // Unknown chord quality
+            }
+        } else { // seventh
+            if (quality === "MAJ") {
+                pattern = arpeggioPatterns.majorSeventh;
+            } else if (quality === "min") {
+                pattern = arpeggioPatterns.minorSeventh;
+            } else if (quality === "dim") {
+                pattern = arpeggioPatterns.diminishedSeventh;
+            } else {
+                pattern = arpeggioPatterns.dominantSeventh;
+            }
+        }
+        
+        // Shift the pattern to the selected chord degree
+        const shiftedPattern = pattern.map(index => (index + chordDegree) % scale.length);
+        
+        // Highlight the arpeggio notes
+        for (let i = 0; i < shiftedPattern.length; i++) {
+            const noteIndex = shiftedPattern[i];
+            const note = scale[noteIndex];
+            let noteFrets = this.container.querySelectorAll("." + note + " .fret-note");
+            noteFrets.forEach(function(fretHTML) {
+                fretHTML.classList.add("arpeggio-note");
             });
         }
     }

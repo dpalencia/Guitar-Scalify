@@ -24,12 +24,37 @@ h1 {
 .scale-notes-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .heading-note {
     padding: 5px;
     font-size: 30px;
     font-weight: 700;
+}
+
+.chord-qualities-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.chord-quality {
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+}
+
+.chord-numeral {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.chord-type {
+    font-size: 12px;
 }
 
 .plus, .minus {
@@ -106,7 +131,7 @@ h1 {
 #scale-select {
     width: 305px;
     max-width: 90%;
-    margin: 30px auto 30px auto;
+    margin: 30px auto 15px auto;
 }
 
 .scale-field {
@@ -118,6 +143,48 @@ h1 {
     outline: none;
     border: 1px solid #fff;
     appearance: button;
+}
+
+.arpeggio-controls {
+    width: 305px;
+    max-width: 90%;
+    margin: 0 auto 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.arpeggio-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.arpeggio-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#arpeggio-toggle {
+    cursor: pointer;
+}
+
+#arpeggio-degree, #arpeggio-type {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.string-fret .fret-note.arpeggio-note {
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px #fff;
 }
 
 
