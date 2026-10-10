@@ -11,6 +11,7 @@ strings.forEach(function(st) {
 const arpeggioToggle = document.getElementById("arpeggio-toggle");
 const arpeggioDegree = document.getElementById("arpeggio-degree");
 const arpeggioType = document.getElementById("arpeggio-type");
+const stringCount = document.getElementById("string-count");
 
 // Then add the events
 formKey.addEventListener("change", function() {
@@ -65,6 +66,10 @@ arpeggioType.addEventListener("change", function() {
     strings.forEach(function(st) {
         st.scalify();
     });
+});
+
+stringCount.addEventListener("change", function() {
+    setSeventhString(this.value === "7");
 });
 
 // Function to update arpeggio degree options based on scale length

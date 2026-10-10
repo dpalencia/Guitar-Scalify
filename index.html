@@ -10,7 +10,7 @@
 <body>
     <div class="intro-text">
         
-        <p>Use the dropdown menus below to select a scale and root note to display on the fretboard. Use the tuners next to the fretboard to change the tuning of its corresponding string. The scale degrees are color coded, with red representing the tonic.</p>
+        <p>Use the dropdown menus below to select a scale and root note to display on the fretboard. Switch between a 6-string and a 7-string fretboard; the 7-string starts in standard tuning with a low B. Use the tuners next to the fretboard to change the tuning of its corresponding string. The scale degrees are color coded, with red representing the tonic.</p>
         <h2 class="scale-heading"></h2>
         <div class="scale-notes-container">
             
@@ -202,6 +202,13 @@
         </div>
     </div>
     <div class="form">
+        <div class="string-count-controls">
+            <label for="string-count">Strings</label>
+            <select id="string-count">
+                <option value="6" selected>6-string</option>
+                <option value="7">7-string</option>
+            </select>
+        </div>
         <form id="scale-select">
             <select class="scale-field" id="key">
                     <option value="C">C</option>
